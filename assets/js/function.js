@@ -1,3 +1,4 @@
+///////new function.js file/////
 function add_div()
 {
 /*	var lastChild = document.getElementById("articlefields").lastChild.id;
@@ -88,4 +89,8 @@ element.appendChild(breakline);
 element.appendChild(breakline);
 element.appendChild(article_name_text);
 */
+}
+function delete_div()
+{
+	
 }
