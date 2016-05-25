@@ -90,7 +90,6 @@ element.appendChild(breakline);
 element.appendChild(article_name_text);
 */
 }
-function delete_div()
 {
 	
 }
