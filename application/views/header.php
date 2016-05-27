@@ -11,7 +11,7 @@
   <script src="/codeignitor/upload/assets/js/bootstrap.min.js"></script>
 <link rel="stylesheet" href="/codeignitor/upload/assets/css/bootstrap.css">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.6.1/css/bootstrap-datepicker.css">
-<script src="/codeignitor/upload/assets/js/function.js"></script>
+
   <style type="text/css">
      .colbox {
           margin-left: 0px;

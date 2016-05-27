@@ -1,4 +1,5 @@
 
+<script src="/codeignitor/upload/assets/js/function.js"></script>
 <div class="container">
 		<?php 
           echo form_open("home/upload_articles");?>
@@ -12,17 +13,24 @@
 		<label for="theme">Theme</label>
 		</div>
 		<div class='col-sm-6' id="articlefields">
-		<input type="text" name="article_title" id=""><br><br>
-		<input type="text" name="keywords" id=""><br><br>
-		<input type="text" name="article_name" id=""><br><br>
-		<input type="text" name="type" id=""><br><br>
-		<input type="text" name="theme" id=""><br><br>
+		<input type="text" name="article_title" id="article_title1"><br><br>
+		<input type="text" name="keywords" id="keywords1"><br><br>
+		<input type="text" name="article_name" id="article_name1"><br><br>
+		<input type="text" name="type" id="type1"><br><br>
+		<input type="text" name="theme" id="theme1"><br><br>
 		
 		</div>
 		</div>
 		</div>
+		<?php
+		//session_start();
+		//$_SESSION["count"] = 1;
+		?>
 		<div class='col-sm-4' id="articlelables">
 		<input id="addmorebtn" name="btn_login" type="button" class="btn btn-default" value="Add More" onclick="add_div()"/>
+		</div>
+		<div class='col-sm-4' id="articlelables">
+		<input id="addmorebtn" name="btn_login" type="button" class="btn btn-default" value="Add Data" onclick="add_data()"/>
 		</div>
 		<?php echo form_close(); ?>
    
