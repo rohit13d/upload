@@ -12,11 +12,11 @@
     <!-- Collection of nav links and other content for toggling -->
     <div id="navbarCollapse" class="collapse navbar-collapse">
         <ul class="nav navbar-nav">
-            <li class="navoption <?=($this->uri->segment(2)==='upload' || $this->uri->segment(1)===NULL)?'active':''?>" id="navop1"><a href="<?php echo site_url('login/upload') ?>">Upload</a></li>
-			<li class="navoption <?=($this->uri->segment(2)==='edit')?'active':''?>" id="navop2"><a href="<?php echo site_url('login/edit') ?>">Edit</a></li>
-            <li class="navoption <?=($this->uri->segment(2)==='delete')?'active':''?>" id="navop3"><a href="<?php echo site_url('login/delete') ?>">Delete</a></li>
+            <li class="navoption <?=($this->uri->segment(2)==='upload' || $this->uri->segment(1)===NULL|| $this->uri->segment(2)==='index')?'active':''?>" id="navop1"><a href="<?php echo site_url('home/upload') ?>">Upload</a></li>
+			<li class="navoption <?=($this->uri->segment(2)==='edit')?'active':''?>" id="navop2"><a href="<?php echo site_url('home/edit') ?>">Edit</a></li>
+            <li class="navoption <?=($this->uri->segment(2)==='delete')?'active':''?>" id="navop3"><a href="<?php echo site_url('home/delete') ?>">Delete</a></li>
            
-		   <li class="navoption " id="navop3"><a href="<?php echo site_url('login/logout') ?>">Logout</a></li>
+		   <li class="navoption " id="navop3"><a href="<?php echo site_url('home/logout') ?>">Logout</a></li>
 		   
         </ul>
         <ul class="nav navbar-nav navbar-right">

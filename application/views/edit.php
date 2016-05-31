@@ -1,3 +1,4 @@
+<script src="/codeignitor/upload/assets/js/function.js"></script>
 <div class="container">
     <div class="row">
         <div class='col-sm-6'>
@@ -11,8 +12,12 @@
                 </div>
             </div>
         </div>
+		<div class='col-sm-6'>
+				
+				<input id="btn_login" name="btn_report_upload" type="button" class="btn btn-default" value="Submit" onclick="load_edit_article()"/>
+         </div>       
 		<script>
-$(document).ready(function(){
+/*$(document).ready(function(){
 $(".formfield_text").datepicker();
 //show_calender();
 });
@@ -20,7 +25,7 @@ function show_calender()
 {
 	//alert("call");
 	$(".formfield_text").datepicker();
-}
+}*/
 </script>
     </div>
 </div>

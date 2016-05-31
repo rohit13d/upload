@@ -31,22 +31,36 @@ class home extends CI_Controller
 		 if ($this->form_validation->run() == FALSE)
           {
                //validation fails
-               $this->load->view('upload_report');
-			   echo "Fill Values in Mandatory fields";
+			    if($this->input->post('btn_report_upload')){
+               echo '<script>alert("Please fill mandatory fields");</script>';
+			   }
+			   $this->load->view('upload_report');
           }
 		  else
 		  {
+			  if($this->input->post('btn_report_upload')){
 			$report_id=$this->app_model->insert_report($report_type, $newformat);
-			echo $report_id; 
-			$this->load->view("upload_articles"); 
+			//echo '<script>alert("'.$report_id.'");</script>';
+			if($report_id==0)
+			{
+				echo '<script>alert("Report already uploaded");</script>';
+				$this->load->view("upload_report");
+			}
+			else{
+				echo '<script>alert("Report added successfully");</script>';
+				$this->load->view("upload_articles");
+			}
+			
 		  }
-		 
+		  }
 	 }
 	 public function upload_articles()
 	 {
 		 $this->load->view('header');
 		 $this->load->view('nav');
-		 
+		 $report_id=$this->app_model->insert_report($report_type, $newformat);
+			echo $report_id; 
+			$this->load->view("upload_articles"); 
 		 
 	 }
 	 public function update()
