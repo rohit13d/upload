@@ -22,7 +22,7 @@
 						<option>Light English</option>
 						<option>Light Chinese</option>
 				</select><br>
-				<input id="btn_login" name="btn_login" type="submit" class="btn btn-default" value="Upload" />
+				<input id="btn_login" name="btn_report_upload" type="submit" class="btn btn-default" value="Upload" />
          </div>       
            
         </div>

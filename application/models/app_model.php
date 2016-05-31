@@ -17,9 +17,27 @@ class app_model extends CI_Model
      }
 	 function insert_report($title, $publishdate)
      {
+          $insert_id=0;
+		  $sql_select = "select * from reports where title='".$title."' and publishdate ='".$publishdate."'";
+		  $select_query = $this->db->query($sql_select);
+		  if($select_query->num_rows() == 0)
+		  {
+		  $sql = "insert into reports (title,publishdate) values ('".$title."','".$publishdate."')";
+          $query = $this->db->query($sql);
+		  $insert_id = $this->db->insert_id();
+		  return $insert_id;
+		  }
+		  else
+		  {
+			 return $insert_id;
+		  }
+		  
+     }
+	 /* function insert_article($title, $publishdate)
+     {
           $sql = "insert into reports (title,publishdate) values ('".$title."','".$publishdate."')";
           $query = $this->db->query($sql);
 		  $insert_id = $this->db->insert_id();
 		  return $insert_id;
-     }
+     } */
 }?>
