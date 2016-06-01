@@ -1,5 +1,4 @@
 <?php if ( ! defined('BASEPATH')) exit('No direct script access allowed');
- 
 class home extends CI_Controller
 {
 
@@ -15,12 +14,13 @@ class home extends CI_Controller
           //load the login model
           $this->load->model('app_model');
 		  $this->load->library('calendar');
+		  $this->load->view('header');
+		  $this->load->view('nav');
      }
 
 	 public function upload()
 	 {
-		 $this->load->view('header');
-		 $this->load->view('nav');
+		 
 		 $this->form_validation->set_rules("datepicker", "ReportDate", "trim|required");
          $this->form_validation->set_rules("product_type", "ReportType", "trim|required");
 		 $report_date = $this->input->post("datepicker");
@@ -48,6 +48,7 @@ class home extends CI_Controller
 			}
 			else{
 				echo '<script>alert("Report added successfully");</script>';
+				//echo '<script>alert("'.$report_id.'");</script>';
 				$this->load->view("upload_articles");
 			}
 			
@@ -73,14 +74,13 @@ class home extends CI_Controller
 	 }
 	 public function edit()
 	 {
-		 $this->load->view("header");
-		 $this->load->view('nav');
-		 $this->load->view('edit');
+		 //$this->load->view("header");
+		 //$this->load->view('nav');
+		 //$this->load->view('edit');
 	 }
 	 public function delete()
 	 {
-		 $this->load->view("header");
-		 $this->load->view('nav');
+		 
 		 $this->load->view('delete');
 	 }
 	 public function logout()

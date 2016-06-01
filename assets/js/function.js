@@ -70,5 +70,6 @@ function dell_div()
 }
 function load_edit_article()
 {
-	alert("called");
+	//var ;
+	//alert("called");
 }

@@ -1,6 +1,6 @@
 <?php
 include "connection.php";
-header('Content-Type: application/json');
+//header('Content-Type: application/json');
 header('Access-Control-Allow-Origin: *');
 $article_name=$_REQUEST["article_name"];
 $article_date=$_REQUEST["article_date"];
@@ -17,10 +17,31 @@ try
 	
 	foreach($stmt->fetchAll() as $k=>$v) { 
         // echo $v['username'];
-		$clientname=array('article_keywords'=>$v['keywords'],'article_name'=>$v['name'],'article_type'=>$v['type'],'article_theme'=>$v['theme']);
+		$clientname=array('article_title'=>$v['title'],'article_keywords'=>$v['keywords'],'article_name'=>$v['name'],'article_type'=>$v['type'],'article_theme'=>$v['theme']);
 		array_push($data,$clientname);
+		echo '<div class="container">
+		<div class="row" style="background:#ccffcc;padding-top:9px" id="art1">
+		<div name="art" class="row">
+        <div class="col-sm-6" id="articlelables">
+		<label for="title">Article Title</label><br><br>
+		<label for="keywords">Keywords</label><br><br>
+		<label for="name">Article Name</label><br><br>
+		<label for="type">Type</label><br><br>
+		<label for="theme">Theme</label>
+		</div>
+		<div class="col-sm-6" id="articlefields">
+		<input type="text" name="article_title" id="article_title1" value="'.$v['title'].'"><br><br>
+		<input type="text" name="keywords" id="keywords1" value="'.$v['keywords'].'"><br><br>
+		<input type="text" name="article_name" id="article_name1" value="'.$v['name'].'"><br><br>
+		<input type="text" name="type" id="type1" value="'.$v['type'].'"><br><br>
+		<input type="text" name="theme" id="theme1" value="'.$v['theme'].'"><br><br><br><br>
+		
+		</div>
+		</div>
+		</div>
+		</div>';
      }
-	 echo json_encode($data);
+	 //echo json_encode($data);
 } catch (PDOException $e) {
 	// DB Connection Error
 	$errorMessage = $e->getMessage();
