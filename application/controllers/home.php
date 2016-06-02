@@ -20,7 +20,7 @@ class home extends CI_Controller
 
 	 public function upload()
 	 {
-		 
+		 if($this->input->post('btn_report_upload')){
 		 $this->form_validation->set_rules("datepicker", "ReportDate", "trim|required");
          $this->form_validation->set_rules("product_type", "ReportType", "trim|required");
 		 $report_date = $this->input->post("datepicker");
@@ -28,6 +28,7 @@ class home extends CI_Controller
 		 
 		 $report_date=strtotime($report_date);
 		 $newformat = date('Y-m-d',$report_date);
+		 $date_format_for_pdffile = date('m-d-Y',$report_date);
 		 if ($this->form_validation->run() == FALSE)
           {
                //validation fails
@@ -48,12 +49,21 @@ class home extends CI_Controller
 			}
 			else{
 				echo '<script>alert("Report added successfully");</script>';
-				//echo '<script>alert("'.$report_id.'");</script>';
+				echo '<script>sessionStorage.report_id='.$report_id.'</script>';
+				echo '<script>sessionStorage.publishdate="'.$newformat.'"</script>';
+				if(strcmp("WHAT I LEARNED THIS WEEK",$report_type)==0)
+				{
+					$pdffilename="WILTW".$date_format_for_pdffile.".pdf";
+					echo '<script>sessionStorage.pdffilename="'.$pdffilename.'"</script>';
+				}
+				//echo '<script>alert("'.$newformat.'");</script>';
 				$this->load->view("upload_articles");
 			}
 			
 		  }
 		  }
+		 }
+		 //unset($_POST);
 	 }
 	 public function upload_articles()
 	 {

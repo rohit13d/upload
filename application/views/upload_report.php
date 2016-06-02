@@ -18,9 +18,9 @@
         </div>
 		 <div class='col-sm-6'>
 				<select class="form-control" id="sel1" name="product_type">
-						<option>What I Learned This Week</option>
-						<option>Light English</option>
-						<option>Light Chinese</option>
+						<option>WHAT I LEARNED THIS WEEK</option>
+						<option>LIGHT ENGLISH</option>
+						<option>LIGHT CHINESE</option>
 				</select><br>
 				<input id="btn_login" name="btn_report_upload" type="submit" class="btn btn-default" value="Upload" />
          </div>       

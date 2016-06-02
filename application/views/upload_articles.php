@@ -31,6 +31,7 @@
 		</div>
 		<div class='col-sm-4' id="articlelables">
 		<input id="addmorebtn" name="btn_login" type="button" class="btn btn-default" value="Add Data" onclick="add_data()"/>
+		
 		</div>
 		
    
