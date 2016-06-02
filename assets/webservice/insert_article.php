@@ -2,28 +2,31 @@
 include "connection.php";
 header('Content-Type: application/json');
 header('Access-Control-Allow-Origin: *');
-//$article_data=array();
-$article_data = $_REQUEST['article_data'];
 
-//echo count($article_data);
-$article_data2 = json_encode($article_data);
-//print_r($article_data[0]["article_title"]);
+$article_data = $_REQUEST['article_data'];
 
 foreach($article_data as $art_data)
 {
-	//print_r(json_encode($art_data["article_title"]));
-	//echo $art_data[0]["article_title"];
-
+	$time = strtotime($art_data["pubdate"]);
+	$pubdate = date('Y-m-d',$time);
+	
 try {
-	$sql = "INSERT INTO articles (title, keywords, name, type, theme) VALUES (:title, :keywords, :name, :type, :theme)";
+	$sql = "INSERT INTO articles (title, keywords, reportid, name, type, theme, pubdate, pdffilename) VALUES (:title, :keywords, :reportid, :name, :type, :theme, :pubdate, :pdffilename)";
 	$stmt = $pdo->prepare($sql);
 	$stmt->bindParam("title", $art_data["article_title"]);
 	$stmt->bindParam("keywords", $art_data["article_keywords"]);
+	$stmt->bindParam("reportid", $art_data["report_id"]);
 	$stmt->bindParam("name", $art_data["article_name"]);
 	$stmt->bindParam("type", $art_data["article_type"]);
 	$stmt->bindParam("theme", $art_data["article_theme"]);
-	
+	$stmt->bindParam("pubdate", $pubdate);
+	$stmt->bindParam("pdffilename", $art_data["pdffilename"]);
+	//echo 1;
 	$stmt->execute();
+	$statusOut = array("code" => '1', "message" => "Success");
+	$fullOut = array("status" => $statusOut);
+	$fullJSON = json_encode($fullOut);
+	print_r($fullJSON);
 	
 } catch (PDOException $e) {
 	// DB Connection Error
